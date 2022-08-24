@@ -5,6 +5,7 @@ nltk.download('stopwords')
 from nltk.classify import NaiveBayesClassifier
 from nltk.corpus import stopwords
 from nltk.classify.util import accuracy
+import random
 
 # "Stop words" that you might want to use in your project/an extension
 stop_words = set(stopwords.words('english'))
@@ -20,8 +21,36 @@ def train(s):
     if wordList[i] not in main_dict:
       main_dict[wordList[i]] = [] #add word as a key to main_dict as key = i
     main_dict[wordList[i]].append(wordList[i+1]) #checks if wordList[i] == key, appendable because value is a list #lines 20-22 execute for each word, looping
+  return main_dict
 
-train("Yeah baby I like it like that You gotta believe me when I tell you I said I like it like that")
+battle = train("Yeah baby I like it like that You gotta believe me when I tell you I said I like it like that")
+
+
+def generate(dict, first_word, num_words):
+  returnStr = first_word
+
+  for i in range(num_words-1):
+    FirstWordList = dict[first_word]
+    current = random.choice(FirstWordList)
+    returnStr = returnStr + " " + current    
+    first_word = current
+  return returnStr  
+    
+    
+    
+    # if str(dict.get(i)) == first_word:
+    #   first_word = random.choice(dict[i])
+    #   returnStr = returnStr + " " + first_word
+    #   currentValue = currentValue + 1
+
+
+print(generate(battle, "I", 10))  
+
+      
+
+  # randomly choose a first word 
+  # take a value in first word and print it out
+  # take a value in the printed-out value of the first word and keep repeating this until reaching 10 words
 
   
 def format_sentence(sent):
