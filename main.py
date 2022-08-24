@@ -16,51 +16,13 @@ def train(s):
   # for i in wordList:
   #     main_dict[i] = "" #add word as a key to main_dict as key = i
   #     main_dict[i].append[wordList[i]] 
-  for i in range(len(wordList)):
-      main_dict[wordList[i]] = "" #add word as a key to main_dict as key = i
-      
-    elif wordList[i] in main_dict:
-      main_dict[wordList[i-1]].append(wordList[i])
-    #   main_dict[i-1].append[i] 
-  print(main_dict)
-  print(main_dict)
-
+  for i in range(len(wordList) - 1): #len = 4, range = 0,1,2,3, wordList[i=3 + 1 = 4, which is not a real index], so minus 1
+    if wordList[i] not in main_dict:
+      main_dict[wordList[i]] = [] #add word as a key to main_dict as key = i
+    main_dict[wordList[i]].append(wordList[i+1]) #checks if wordList[i] == key, appendable because value is a list #lines 20-22 execute for each word, looping
 
 train("Yeah baby I like it like that You gotta believe me when I tell you I said I like it like that")
 
-
-
-# #train method 
-# def train(s):
-#   main_dict = {}
-#   wordList = s.split()
-    
-#   for i in wordList:
-#       main_dict[i].append("")
-
-
-#   for i in wordList:
-#     if i not in main_dict:
-#       main_dict[i]= "" #add word as a key to main_dict as key = iielse:
-#       main_dict[i-1].append[i]
-#   print(main_dict)  for i in range(len(wordList)):
-#     if wordList[i] not in main_dict:
-#       main_dict[wordList[i]].append("")  #add word as a key to main_dict as key = i
-      
-#     elif wordList[i] in main_dict:
-#       main_dict[i-1]].append(i)
-#     #   main_dict[i-1].append[i] 
-# print(main_dict)
-
-# train("Yeah baby I like it like that You gotta believe me when I tell you I said I like it like that")
-# happy: day
-# day: at
-# at: the
-# the: zoo
-# zoo: monkey
-# monkey: monkey 
-# : monkey
-   
   
 def format_sentence(sent):
     ''' format the text setence as a bag of words for use in nltk'''
