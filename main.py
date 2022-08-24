@@ -9,6 +9,59 @@ from nltk.classify.util import accuracy
 # "Stop words" that you might want to use in your project/an extension
 stop_words = set(stopwords.words('english'))
 
+def train(s):
+  main_dict = {}
+  wordList = s.split()
+    
+  # for i in wordList:
+  #     main_dict[i] = "" #add word as a key to main_dict as key = i
+  #     main_dict[i].append[wordList[i]] 
+  for i in range(len(wordList)):
+      main_dict[wordList[i]] = "" #add word as a key to main_dict as key = i
+      
+    elif wordList[i] in main_dict:
+      main_dict[wordList[i-1]].append(wordList[i])
+    #   main_dict[i-1].append[i] 
+  print(main_dict)
+  print(main_dict)
+
+
+train("Yeah baby I like it like that You gotta believe me when I tell you I said I like it like that")
+
+
+
+# #train method 
+# def train(s):
+#   main_dict = {}
+#   wordList = s.split()
+    
+#   for i in wordList:
+#       main_dict[i].append("")
+
+
+#   for i in wordList:
+#     if i not in main_dict:
+#       main_dict[i]= "" #add word as a key to main_dict as key = iielse:
+#       main_dict[i-1].append[i]
+#   print(main_dict)  for i in range(len(wordList)):
+#     if wordList[i] not in main_dict:
+#       main_dict[wordList[i]].append("")  #add word as a key to main_dict as key = i
+      
+#     elif wordList[i] in main_dict:
+#       main_dict[i-1]].append(i)
+#     #   main_dict[i-1].append[i] 
+# print(main_dict)
+
+# train("Yeah baby I like it like that You gotta believe me when I tell you I said I like it like that")
+# happy: day
+# day: at
+# at: the
+# the: zoo
+# zoo: monkey
+# monkey: monkey 
+# : monkey
+   
+  
 def format_sentence(sent):
     ''' format the text setence as a bag of words for use in nltk'''
     tokens = nltk.word_tokenize(sent)
@@ -27,6 +80,8 @@ def split_train_test(data, train_prop):
         output: A tuple of two lists, (training, testing)
     '''
     # TODO: You will write this function, and change the return value
+
+  
     return ([], [])
 
 def format_for_classifier(data_list, label):
