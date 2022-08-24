@@ -44,7 +44,7 @@ def generate(dict, first_word, num_words):
     #   currentValue = currentValue + 1
 
 
-print(generate(battle, "I", 10))  
+print(generate(battle, "I", 50))  
 
       
 
